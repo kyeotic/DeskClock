@@ -17,6 +17,8 @@ namespace DeskClock.UI
 
         public ClockViewModel()
         {
+            StartClockTimer();
+
             App.Messenger.Register(App.Events.WindowMoved, (Action<Point>)(p => { this.UpdateWindowPosition(p.X, p.Y); }));
             _debouncer = new Debouncer(250);
             DisplayBrush = new SolidColorBrush(Settings.ClockColor);
